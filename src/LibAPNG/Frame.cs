@@ -76,7 +76,7 @@ public class Frame
         }
 
         // Write image data
-        using MemoryStream ms = new();
+        MemoryStream ms = new();
         ms.WriteBytes(Signature);
         ms.WriteBytes(ihdrChunk.RawData);
         otherChunks.ForEach(o => ms.WriteBytes(o.RawData));
