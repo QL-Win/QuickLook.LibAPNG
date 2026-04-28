@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="LibAPNG.Test/LibAPNG.Test.csproj" />
+  <Project Path="LibAPNG/LibAPNG.csproj" />
+</Solution>

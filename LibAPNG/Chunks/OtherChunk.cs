@@ -1,26 +1,25 @@
 ﻿using System.IO;
 
-namespace LibAPNG
+namespace LibAPNG;
+
+public class OtherChunk : Chunk
 {
-    public class OtherChunk : Chunk
+    public OtherChunk(byte[] bytes)
+        : base(bytes)
     {
-        public OtherChunk(byte[] bytes)
-            : base(bytes)
-        {
-        }
+    }
 
-        public OtherChunk(MemoryStream ms)
-            : base(ms)
-        {
-        }
+    public OtherChunk(MemoryStream ms)
+        : base(ms)
+    {
+    }
 
-        public OtherChunk(Chunk chunk)
-            : base(chunk)
-        {
-        }
+    public OtherChunk(Chunk chunk)
+        : base(chunk)
+    {
+    }
 
-        protected override void ParseData(MemoryStream ms)
-        {
-        }
+    protected override void ParseData(MemoryStream ms)
+    {
     }
 }
