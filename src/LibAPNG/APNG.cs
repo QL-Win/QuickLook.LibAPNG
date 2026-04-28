@@ -6,9 +6,7 @@ namespace LibAPNG;
 
 public class APNG
 {
-    private readonly Frame defaultImage = new();
     private readonly List<Frame> frames = [];
-    private readonly MemoryStream ms;
 
     public APNG(string fileName)
         : this(File.ReadAllBytes(fileName))
@@ -17,7 +15,7 @@ public class APNG
 
     public APNG(byte[] fileBytes)
     {
-        ms = new MemoryStream(fileBytes);
+        MemoryStream ms = new(fileBytes);
 
         // check file signature.
         if (!Helper.IsBytesEqual(ms.ReadBytes(Frame.Signature.Length), Frame.Signature))
@@ -58,8 +56,8 @@ public class APNG
                         IsSimplePNG = true;
 
                     // Only default image has IDAT.
-                    defaultImage.IHDRChunk = IHDRChunk;
-                    defaultImage.AddIDATChunk(new IDATChunk(chunk));
+                    DefaultImage.IHDRChunk = IHDRChunk;
+                    DefaultImage.AddIDATChunk(new IDATChunk(chunk));
                     isIDATAlreadyParsed = true;
                     break;
 
@@ -87,7 +85,7 @@ public class APNG
                     // Otherwise this fcTL is used by the DEFAULT IMAGE.
                     else
                     {
-                        defaultImage.fcTLChunk = new fcTLChunk(chunk);
+                        DefaultImage.fcTLChunk = new fcTLChunk(chunk);
                     }
                     break;
 
@@ -125,9 +123,9 @@ public class APNG
         // We have one more thing to do:
         // If the default image if part of the animation,
         // we should insert it into frames list.
-        if (defaultImage.fcTLChunk != null)
+        if (DefaultImage.fcTLChunk != null)
         {
-            frames.Insert(0, defaultImage);
+            frames.Insert(0, DefaultImage);
             DefaultImageIsAnimated = true;
         }
 
@@ -150,7 +148,7 @@ public class APNG
     ///     If IsSimplePNG = True, returns the only image;
     ///     if False, returns the default image
     /// </summary>
-    public Frame DefaultImage => defaultImage;
+    public Frame DefaultImage { get; } = new();
 
     /// <summary>
     ///     Gets the frame array.
@@ -161,10 +159,10 @@ public class APNG
     /// <summary>
     ///     Gets the IHDR Chunk
     /// </summary>
-    public IHDRChunk IHDRChunk { get; private set; }
+    public IHDRChunk IHDRChunk { get; }
 
     /// <summary>
     ///     Gets the acTL Chunk
     /// </summary>
-    public acTLChunk acTLChunk { get; private set; }
+    public acTLChunk acTLChunk { get; }
 }
