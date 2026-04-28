@@ -1,10 +1,39 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFrameworks>net40;net452;net462;net472;net48;net481;netstandard2.0;netstandard2.1;.netcoreapp2.0;netcoreapp3.0;net5.0;net6.0;net8.0;net10.0;</TargetFrameworks>
-		<LangVersion>preview</LangVersion>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <PropertyGroup>
+        <TargetFrameworks>net40;net452;net462;net472;net48;net481;netstandard2.0;netstandard2.1;.netcoreapp2.0;netcoreapp3.0;net5.0;net6.0;net8.0;net10.0;</TargetFrameworks>
+        <LangVersion>preview</LangVersion>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <NoWarn>${NoWarn};NU1903</NoWarn>
-	</PropertyGroup>
+        <PackageId>QuickLook.LibAPNG</PackageId>
+        <Product>LibAPNG</Product>
+        <AssemblyName>LibAPNG</AssemblyName>
+        <RootNamespace>LibAPNG</RootNamespace>
+        <Nullable>disable</Nullable>
+        <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
+        <AssemblyVersion>0.2.6420.40424</AssemblyVersion>
+        <FileVersion>0.2.6420.40424</FileVersion>
+        <Version>$(VersionPrefix)0.2.6420.40424</Version>
+        <Authors>QL-Win</Authors>
+        <Company>QL-Win</Company>
+        <Description>A fully-managed APNG Parser.</Description>
+        <PackageProjectUrl>https://github.com/QL-Win/QuickLook.LibAPNG</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/QL-Win/QuickLook.LibAPNG</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>.NET APNG Parser</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>Logo.png</PackageIcon>
+        <DebugType>portable</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\README.md" Pack="true" PackagePath="" />
+        <None Include="..\..\Logo.png" Pack="true" PackagePath="" />
+    </ItemGroup>
 
 </Project>
