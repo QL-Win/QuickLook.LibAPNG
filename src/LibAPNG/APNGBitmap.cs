@@ -4,16 +4,16 @@ using System.IO;
 
 namespace LibAPNG;
 
-public class APNG
+public class APNGBitmap
 {
     private readonly List<Frame> frames = [];
 
-    public APNG(string fileName)
+    public APNGBitmap(string fileName)
         : this(File.ReadAllBytes(fileName))
     {
     }
 
-    public APNG(byte[] fileBytes)
+    public APNGBitmap(byte[] fileBytes)
     {
         MemoryStream ms = new(fileBytes);
 

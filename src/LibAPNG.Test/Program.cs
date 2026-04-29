@@ -14,7 +14,7 @@ internal class Program
 
             return;
         }
-        var apng = new APNG(args[0]);
+        var apng = new APNGBitmap(args[0]);
 
         if (!apng.DefaultImageIsAnimated)
             File.WriteAllBytes("0.png", apng.DefaultImage.GetStream().ToArray());
