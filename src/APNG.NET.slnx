@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="LibAPNG.Test.WPF/LibAPNG.Test.WPF.csproj" />
   <Project Path="LibAPNG.Test/LibAPNG.Test.csproj" />
   <Project Path="LibAPNG/LibAPNG.csproj" />
 </Solution>
