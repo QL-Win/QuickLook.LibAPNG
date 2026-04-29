@@ -85,4 +85,19 @@ public class Frame
         ms.Position = 0;
         return ms;
     }
+
+    //public BitmapSource GetBitmapSource()
+    //{
+    //    using MemoryStream stream = GetStream();
+    //
+    //    var bitmapImage = new BitmapImage();
+    //    bitmapImage.BeginInit();
+    //    bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+    //    bitmapImage.StreamSource = stream;
+    //    bitmapImage.EndInit();
+    //    bitmapImage.StreamSource = null;
+    //    bitmapImage.Freeze();
+    //
+    //    return bitmapImage;
+    //}
 }
